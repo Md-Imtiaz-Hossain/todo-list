@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Slf4j
@@ -109,6 +110,19 @@ public class DemoController {
         log.info("welcomeMessage3() called");
         return demoService.getWelcomeMessage();
     }
+
+
+    // Getting request from localhost link (@GetRequest Param uses)
+    // http://localhost:8080/todo-list/w4_and_m4_fromInterface?name=Imtiaz&id=2&age=21
+    @GetMapping("w4_and_m4_fromInterface")
+    public String welcome4(@RequestParam String name, @RequestParam int id, @RequestParam int age, Model model){
+        model.addAttribute("name",demoService.getHelloMessage(name));
+        model.addAttribute("id",id);
+        model.addAttribute("age",age);
+        return "w4_and_m4_fromInterface";
+
+    }
+
 
 
 

@@ -11,9 +11,9 @@
     <title>welcome2_and_welcomeMessage2</title>
 </head>
 <body>
-        <h1> Hello ${user}</h1>          <%-- getting value from--> model.addAttribute("user", "Imtiaz");   --%>
+        <h1> Hello ${user}</h1>          <%-- getting value from--> model.addAttribute("user","Imtiaz");   --%>
        <h1>${welcomeMessage2}</h1>    <%-- calling method -->  @ModelAttribute("welcomeMessage2")--%>
 
-        <h1>Finish</h1>
+        <h1>welcome2_and_welcomeMessage2</h1>
 </body>
 </html>

@@ -14,6 +14,6 @@
         <h1>${helloMessage}</h1>          <%-- getting value from--> model.addAttribute("helloMessage", "demoService.getHelloMessage("Imtiaz")");   --%>
        <h1>${welcomeMessage3}</h1>    <%-- calling method -->  @ModelAttribute("welcomeMessage3")--%>
 
-        <h1>welcome3_and_welcomeMessage3_fromInterface</h1>
+        <h1>Jsp file is --> welcome3_and_welcomeMessage3_fromInterface</h1>
 </body>
 </html>

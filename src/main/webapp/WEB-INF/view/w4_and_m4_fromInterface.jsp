@@ -11,10 +11,10 @@
     <title>welcome2_and_welcomeMessage2</title>
 </head>
 <body>
-        <h1>${name}</h1>          <%-- getting value from--> model.addAttribute("helloMessage", "demoService.getHelloMessage("Imtiaz")");   --%>
-        <h1>${id}</h1>          <%-- getting value from--> model.addAttribute("helloMessage", "demoService.getHelloMessage("Imtiaz")");   --%>
-       <h1>${age}</h1>    <%-- calling method -->  @ModelAttribute("welcomeMessage3")--%>
+        <h1>Welcome ${name}</h1>          <%-- getting value from--> model.addAttribute("helloMessage", "demoService.getHelloMessage("Imtiaz")");   --%>
+        <h1>Your id is  ${id}</h1>          <%-- getting value from--> model.addAttribute("helloMessage", "demoService.getHelloMessage("Imtiaz")");   --%>
+       <h1> You are ${age} years old.</h1>    <%-- calling method -->  @ModelAttribute("welcomeMessage3")--%>
 
-        <h1>w4_and_m4_fromInterface</h1>
+        <h1>Jsp file is --> w4_and_m4_fromInterface</h1>
 </body>
 </html>

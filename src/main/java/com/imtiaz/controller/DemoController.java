@@ -1,9 +1,12 @@
 package com.imtiaz.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+@Slf4j
 @Controller
 public class DemoController {
 
@@ -36,7 +39,9 @@ public class DemoController {
     // prefix + name + suffix
     // /WEB-INF/view/welcome.jsp
      @GetMapping("welcome")
-    public String welcome() {
+    public String welcome(Model model) {
+        model.addAttribute("user", "Imtiaz");
+        log.info("model = {}",model);
         return "welcome";
     }
 

@@ -1,6 +1,6 @@
 package com.imtiaz.controller;
 
-import com.imtiaz.model.TodoData;
+import com.imtiaz.model2.TodoData;
 import com.imtiaz.util.Mappings;
 import com.imtiaz.util.ViewNames;
 import org.springframework.stereotype.Controller;
@@ -21,5 +21,6 @@ public class TodoItemController {
     public String items(){
         return ViewNames.ITEMS_LIST;
     }
+
 
 }

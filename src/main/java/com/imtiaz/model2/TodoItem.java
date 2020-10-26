@@ -1,4 +1,4 @@
-package com.imtiaz.model;
+package com.imtiaz.model2;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,11 +9,13 @@ import java.time.LocalDate;
 @EqualsAndHashCode(of = "id")
 public class TodoItem {
 
-      private int id;
-      private String title;
-      private String details;
-      private LocalDate deadline;
+    // == fields ==
+    private int id;
+    private String title;
+    private String details;
+    private LocalDate deadline;
 
+    // == constructors ==
     public TodoItem(String title, String details, LocalDate deadline) {
         this.title = title;
         this.details = details;

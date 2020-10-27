@@ -1,4 +1,4 @@
-package com.imtiaz.model2;
+package com.imtiaz.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -44,14 +44,14 @@ public class TodoItemController {
 
 
     // http://localhost:8080/todo-list/addItem
-    @GetMapping
+    @GetMapping(Mappings.ADD_ITEM)
     public String addEditItem(Model model){
         TodoItem todoItem = new TodoItem("","", LocalDate.now());
         model.addAttribute(AttributeNames.TODO_ITEM, todoItem);
         return ViewNames.ADD_ITEM;
     }
 
-    @PostMapping(Mappings.ADD_ITEM)
+     @PostMapping(Mappings.ADD_ITEM)
     public String processItem(@ModelAttribute(AttributeNames.TODO_ITEM) TodoItem todoItem){
         log.info("todo form from = {}", todoItem);
         itemService.addItem(todoItem);

@@ -41,10 +41,18 @@ public class TodoItemController {
 
 
 
-    // http://localhost:8080/todo-list/addItem
+    // http://localhost:8080/todo-list/
     @GetMapping(Mappings.ADD_ITEM)
-    public String addEditItem(Model model){
-        TodoItem todoItem = new TodoItem("","", LocalDate.now());
+    public String addEditItem(@RequestParam(required = false, defaultValue = "-1") int id,
+                              Model model){
+        log.info("edit id = {}", id);
+
+        TodoItem todoItem = itemService.getItem(id);
+
+        if (todoItem == null){
+            todoItem = new TodoItem("","", LocalDate.now());
+        }
+
         model.addAttribute(AttributeNames.TODO_ITEM, todoItem);
         return ViewNames.ADD_ITEM;
     }
@@ -52,7 +60,13 @@ public class TodoItemController {
      @PostMapping(Mappings.ADD_ITEM)
     public String processItem(@ModelAttribute(AttributeNames.TODO_ITEM) TodoItem todoItem){
         log.info("todo form from = {}", todoItem);
-        itemService.addItem(todoItem);
+
+        if (todoItem.getId() == 0){
+            itemService.addItem(todoItem);
+        }else {
+            itemService.updateItem(todoItem);
+        }
+
         return "redirect:/" + Mappings.ITEMS;
     }
 
@@ -63,6 +77,12 @@ public class TodoItemController {
         return "redirect:/" + Mappings.ITEMS;
     }
 
-
+    @GetMapping(Mappings.VIEW_ITEM)
+    public String viewItem(@RequestParam int id, Model model){
+        log.info("view item with id = {}", id);
+        TodoItem todoItem = itemService.getItem(id);
+        model.addAttribute(AttributeNames.TODO_ITEM, todoItem);
+        return ViewNames.VIEW_ITEM;
+    }
 
 }

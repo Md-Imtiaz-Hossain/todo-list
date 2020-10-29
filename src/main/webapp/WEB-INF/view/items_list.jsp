@@ -31,17 +31,23 @@
             <th>Deadline</th>
             <th>Edit</th>
             <td>Delete</td>
+            <td>View</td>
         </tr>
 
         <c:forEach var="item" items="${todoData.items}">
+
+            <c:url var="editUrl" value="${Mappings.ADD_ITEM}">
+                <c:param name="id" value="${item.id}"/>
+            </c:url>
 
             <c:url var="deleteUrl" value="${Mappings.DELETE_ITEM}">
                 <c:param name="id" value="${item.id}"/>
             </c:url>
 
-            <c:url var="editUrl" value="${Mappings.EDIT_ITEM}">
+            <c:url var="viewUrl" value="${Mappings.VIEW_ITEM}">
                 <c:param name="id" value="${item.id}"/>
             </c:url>
+
 
 
             <tr>
@@ -49,7 +55,8 @@
                 <td><c:out value="${item.deadline}"/></td>
                 <td><a href="${editUrl}">Edit</a></td>
                 <td><a href="${deleteUrl}">Delete</a></td>
-            <tr/>
+                <td><a href="${viewUrl}">View</a></td>
+            </tr>
 
         </c:forEach>
     </table>
